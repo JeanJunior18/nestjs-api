@@ -2,6 +2,19 @@ POST http://localhost:3000/products
 Content-Type: application/json
 
 {
-  "name": "Product 1",
+  "name": "Product 3",
   "price": 10.00
 }
+###
+GET http://localhost:3000/products
+###
+GET http://localhost:3000/products/9
+###
+PATCH  http://localhost:3000/products/9
+Content-Type: application/json
+
+{
+  "price": 12.90
+}
+###
+DELETE http://localhost:3000/products/9

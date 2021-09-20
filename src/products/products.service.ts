@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { EntityNotFoundError, Repository } from 'typeorm';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { Product } from './entities/product.entity';
@@ -18,18 +18,25 @@ export class ProductsService {
   }
 
   findAll() {
-    return `This action returns all products`;
+    return this.productRepo.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} product`;
+  async findOne(id: number) {
+    const product = await this.productRepo.findOne(id);
+    if (!product) throw new EntityNotFoundError(Product, id);
+    return this.productRepo.findOne(id);
   }
 
-  update(id: number, updateProductDto: UpdateProductDto) {
-    return `This action updates a #${id} product`;
+  async update(id: number, updateProductDto: UpdateProductDto) {
+    const updateResult = await this.productRepo.update(id, updateProductDto);
+    if (!updateResult.affected) throw new EntityNotFoundError(Product, id);
+
+    return this.productRepo.findOne(id);
   }
 
-  remove(id: number) {
+  async remove(id: number) {
+    const deleteResult = await this.productRepo.delete(id);
+    if (!deleteResult.affected) throw new EntityNotFoundError(Product, id);
     return `This action removes a #${id} product`;
   }
 }
