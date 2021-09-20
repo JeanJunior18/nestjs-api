@@ -7,7 +7,6 @@ import {
   Param,
   Delete,
   HttpCode,
-  ValidationPipe,
 } from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
@@ -18,10 +17,7 @@ export class ProductsController {
   constructor(private readonly productsService: ProductsService) {}
 
   @Post()
-  create(
-    @Body(new ValidationPipe({ errorHttpStatusCode: 422 }))
-    createProductDto: CreateProductDto,
-  ) {
+  create(@Body() createProductDto: CreateProductDto) {
     return this.productsService.create(createProductDto);
   }
 
@@ -36,11 +32,7 @@ export class ProductsController {
   }
 
   @Patch(':id')
-  update(
-    @Param('id') id: string,
-    @Body(new ValidationPipe({ errorHttpStatusCode: 422 }))
-    updateProductDto: UpdateProductDto,
-  ) {
+  update(@Param('id') id: string, @Body() updateProductDto: UpdateProductDto) {
     return this.productsService.update(+id, updateProductDto);
   }
 
