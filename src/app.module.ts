@@ -6,6 +6,7 @@ import { AppService } from './app.service';
 import { ProductsModule } from './products/products.module';
 import { CheckoutController } from './checkout/checkout.controller';
 import { ClientsModule, Transport } from '@nestjs/microservices';
+import { PaymentController } from './payment/payment.controller';
 
 @Module({
   imports: [
@@ -35,7 +36,7 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
       },
     ]),
   ],
-  controllers: [AppController, CheckoutController],
+  controllers: [AppController, CheckoutController, PaymentController],
   providers: [AppService],
 })
 export class AppModule {}

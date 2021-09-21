@@ -17,7 +17,7 @@ export class CheckoutController implements OnModuleInit {
 
   @Get()
   async checkout() {
-    const result = await this.kafkaProducer.send({
+    this.kafkaProducer.send({
       topic: 'pagamentos',
       messages: [
         {
