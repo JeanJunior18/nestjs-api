@@ -3,9 +3,11 @@ import { NestFactory } from '@nestjs/core';
 import { Transport } from '@nestjs/microservices';
 import { AppModule } from './app.module';
 import { EntityNotFoundExceptionFilter } from './exception.filters/entity-not-found.exception-filter';
+import { initSwagger } from './shared/plugins/swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  initSwagger(app);
   app.connectMicroservice({
     transport: Transport.KAFKA,
     options: {
