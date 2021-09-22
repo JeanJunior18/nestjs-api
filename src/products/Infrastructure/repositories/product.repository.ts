@@ -27,4 +27,12 @@ export class ProductRepo implements RepositoryPort<Product> {
 
     return this.repository.findOne(id);
   }
+
+  async list() {
+    return this.repository.find();
+  }
+
+  async findById(id: string) {
+    return this.repository.findOne(id);
+  }
 }

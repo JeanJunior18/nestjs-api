@@ -1,17 +1,31 @@
-import { Controller, Post, Body, Patch, Param } from '@nestjs/common';
+import { Controller, Post, Body, Patch, Param, Get } from '@nestjs/common';
+import { UpdateProductDto } from '../dto/update-product.dto';
+import { CreateProductDto } from '../dto/create-product.dto';
 import {
   CreateProductService,
+  FindProductByIdService,
+  ListProductService,
   UpdateProductService,
 } from 'src/products/ApplicationCore/applicationServices/useCases';
-import { CreateProductDto } from '../dto/create-product.dto';
-import { UpdateProductDto } from '../dto/update-product.dto';
 
 @Controller('products')
 export class ProductsController {
   constructor(
     private readonly createProductService: CreateProductService,
     private readonly updateProductService: UpdateProductService,
+    private readonly listProductService: ListProductService,
+    private readonly findProductByIdService: FindProductByIdService,
   ) {}
+
+  @Get()
+  list() {
+    return this.listProductService.execute();
+  }
+
+  @Get(':id')
+  findById(@Param('id') id: string) {
+    return this.findProductByIdService.execute(id);
+  }
 
   @Post()
   create(@Body() createProductDto: CreateProductDto) {
