@@ -6,7 +6,7 @@ import { CreateProductDto } from 'src/products/UserInterfaces/dto/create-product
 import { Repository } from 'typeorm';
 
 @Injectable()
-export class ProductRepository implements RepositoryPort<Product> {
+export class ProductRepo implements RepositoryPort<Product> {
   constructor(
     @InjectRepository(Product)
     private readonly repository: Repository<Product>,
