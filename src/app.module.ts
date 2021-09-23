@@ -4,9 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ProductsModule } from './products/products.module';
-import { CheckoutController } from './checkout/checkout.controller';
 import { ClientsModule, Transport } from '@nestjs/microservices';
-import { PaymentController } from './payment/payment.controller';
 
 @Module({
   imports: [
@@ -36,7 +34,7 @@ import { PaymentController } from './payment/payment.controller';
       },
     ]),
   ],
-  controllers: [AppController, CheckoutController, PaymentController],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
