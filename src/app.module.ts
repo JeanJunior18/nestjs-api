@@ -4,7 +4,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ProductsModule } from './products/products.module';
-import { ClientsModule, Transport } from '@nestjs/microservices';
 
 @Module({
   imports: [
@@ -19,20 +18,6 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
       database: process.env.TYPEORM_DATABASE,
       entities: [process.env.TYPEORM_ENTITIES],
     }),
-    ClientsModule.register([
-      {
-        name: 'KAFKA_SERVICE',
-        transport: Transport.KAFKA,
-        options: {
-          client: {
-            brokers: ['host.docker.internal:9094'],
-          },
-          consumer: {
-            groupId: 'nestjs-kafka-example ' + Date.now(),
-          },
-        },
-      },
-    ]),
   ],
   controllers: [AppController],
   providers: [AppService],
