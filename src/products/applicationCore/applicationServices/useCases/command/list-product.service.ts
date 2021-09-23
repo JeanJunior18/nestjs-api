@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { ProductRepo } from 'src/products/Infrastructure/repositories/product.repository';
+import { ProductRepo } from 'src/products/infrastructure/repositories/product.repository';
 
 @Injectable()
 export class ListProductService {

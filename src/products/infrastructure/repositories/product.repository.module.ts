@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { Product } from 'src/products/ApplicationCore/domain/model';
+import { Product } from 'src/products/applicationCore/domain/model';
 import { ProductRepo } from './product.repository';
 
 @Module({

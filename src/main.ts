@@ -2,7 +2,7 @@ import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { EntityNotFoundExceptionFilter } from './exception.filters/entity-not-found.exception-filter';
-import { KafkaOptions } from './products/Infrastructure/eventBUS/kafka.config';
+import { KafkaOptions } from './products/infrastructure/eventBUS/kafka.config';
 import { initSwagger } from './shared/plugins/swagger';
 
 async function bootstrap() {

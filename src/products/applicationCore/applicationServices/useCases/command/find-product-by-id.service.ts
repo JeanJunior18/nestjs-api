@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { Product } from 'src/products/ApplicationCore/domain/model';
-import { ProductRepo } from 'src/products/Infrastructure/repositories/product.repository';
+import { Product } from 'src/products/applicationCore/domain/model';
+import { ProductRepo } from 'src/products/infrastructure/repositories/product.repository';
 import { EntityNotFoundError } from 'typeorm';
 
 @Injectable()

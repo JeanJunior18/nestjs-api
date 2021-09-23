@@ -1,7 +1,7 @@
 import { Controller, Logger } from '@nestjs/common';
 import { EventPattern, Payload } from '@nestjs/microservices';
-import { WriteOffStockService } from 'src/products/ApplicationCore/applicationServices/useCases';
-import { IncomingKafkaMessage } from 'src/products/Infrastructure/eventBUS/incomming-kafka-message';
+import { WriteOffStockService } from 'src/products/applicationCore/applicationServices/useCases';
+import { IncomingKafkaMessage } from 'src/products/infrastructure/eventBUS/incomming-kafka-message';
 import { WriteOffStockDto } from '../dto/write-off-stock.dto';
 
 @Controller()

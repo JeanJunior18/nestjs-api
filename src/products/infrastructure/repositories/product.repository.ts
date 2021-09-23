@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { RepositoryPort } from 'src/products/ApplicationCore/applicationServices/ports/repository.port';
-import { Product } from 'src/products/ApplicationCore/domain/model';
-import { CreateProductDto } from 'src/products/UserInterfaces/dto/create-product.dto';
-import { UpdateProductDto } from 'src/products/UserInterfaces/dto/update-product.dto';
+import { RepositoryPort } from 'src/products/applicationCore/applicationServices/ports/repository.port';
+import { Product } from 'src/products/applicationCore/domain/model';
+import { CreateProductDto } from 'src/products/userInterfaces/dto/create-product.dto';
+import { UpdateProductDto } from 'src/products/userInterfaces/dto/update-product.dto';
 import { EntityNotFoundError, Repository } from 'typeorm';
 
 @Injectable()

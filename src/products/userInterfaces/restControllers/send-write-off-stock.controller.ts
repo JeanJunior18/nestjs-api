@@ -1,5 +1,5 @@
 import { Controller, Get, Logger } from '@nestjs/common';
-import { EventBusService } from 'src/products/ApplicationCore/applicationServices/adapters';
+import { EventBusService } from 'src/products/applicationCore/applicationServices/adapters';
 
 @Controller('kafka')
 export class SendWriteOffStockController {

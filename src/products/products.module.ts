@@ -1,16 +1,16 @@
 import { Module } from '@nestjs/common';
-import { ProductRepositoryModule } from './Infrastructure/repositories/product.repository.module';
+import { ProductRepositoryModule } from './infrastructure/repositories/product.repository.module';
 import {
   CreateProductService,
   FindProductByIdService,
   ListProductService,
   UpdateProductService,
-} from './ApplicationCore/applicationServices/useCases';
+} from './applicationCore/applicationServices/useCases';
 import {
   ProductsController,
   SendWriteOffStockController,
-} from './UserInterfaces/restControllers';
-import { KafkaModule } from './Infrastructure/eventBUS/kafka.module';
+} from './userInterfaces/restControllers';
+import { KafkaModule } from './infrastructure/eventBUS/kafka.module';
 
 @Module({
   imports: [ProductRepositoryModule, KafkaModule],

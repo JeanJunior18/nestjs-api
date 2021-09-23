@@ -6,7 +6,7 @@ import {
   FindProductByIdService,
   ListProductService,
   UpdateProductService,
-} from 'src/products/ApplicationCore/applicationServices/useCases';
+} from 'src/products/applicationCore/applicationServices/useCases';
 
 @Controller('products')
 export class ProductsController {
